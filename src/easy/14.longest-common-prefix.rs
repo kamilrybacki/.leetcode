@@ -16,10 +16,11 @@ impl Solution {
             match strs[1..]
                 .iter()
                 .filter(|current_string| match current_string.chars().nth(index) {
-                  Some(character) => character == target_char,
-                  None => false
+                    Some(character) => character == target_char,
+                    None => false,
                 })
-                .count() == strs.len() - 1
+                .count()
+                == strs.len() - 1
             {
                 false => break,
                 true => index += 1,
