@@ -6,10 +6,10 @@ pub mod problem_13;
 pub mod problem_14;
 #[path = "easy/20.valid-parentheses.rs"]
 pub mod problem_20;
-#[path = "easy/9.palindrome-number.rs"]
-pub mod problem_9;
 #[path = "easy/21.merge-two-sorted-lists.rs"]
 pub mod problem_21;
+#[path = "easy/9.palindrome-number.rs"]
+pub mod problem_9;
 
 fn main() {
     println!("Hello, world!");
