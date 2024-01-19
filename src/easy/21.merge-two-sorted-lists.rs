@@ -22,41 +22,55 @@
 //   }
 // }
 
+use std::cmp::Ordering;
 
 impl Solution {
     pub fn merge_two_lists(
-        list1: Option<Box<ListNode>>,
-        list2: Option<Box<ListNode>>,
+        mut list1: Option<Box<ListNode>>,
+        mut list2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
-      use std::cmp::Ordering;
-      let mut list1_head = list1.clone();
-      let mut list2_head = list2.clone();
-      let mut results: Vec<Option<Box<ListNode>>> = Vec::new();
-      while list1_head != None && list2_head != None {
-        let mut new_node = Box::new(ListNode::new(0));
-        match list1_head.clone().unwrap().val.cmp(&list2_head.clone().unwrap().val) {
-          Ordering::Less | Ordering::Equal => {
-            new_node.val = list1_head.clone().unwrap().val;
-            new_node.next = Some(Box::new(ListNode::new(
-              list2_head.clone().unwrap().val
-            )));
-          }
-          Ordering::Greater => {
-            new_node.val = list2_head.clone().unwrap().val;
-            new_node.next = Some(Box::new(ListNode::new(
-              list1_head.clone().unwrap().val
-            )));
-          }
+        let mut result: Vec<Option<Box<ListNode>>> = Vec::new();
+        while list1 != None {
+            match list2 {
+                Some(ref list2_node) => match list1.clone().unwrap().val.cmp(&list2_node.val) {
+                    Ordering::Greater | Ordering::Equal => {
+                        result.push(list2.clone());
+                        list2 = match list2 {
+                            Some(head) => head.next,
+                            None => None,
+                        };
+                    }
+                    Ordering::Less => {
+                        result.push(list1.clone());
+                        list1 = match list1 {
+                            Some(head) => head.next,
+                            None => None,
+                        }
+                    }
+                },
+                None => {
+                    result.push(list1.clone());
+                    list1 = match list1 {
+                        Some(head) => head.next,
+                        None => None,
+                    }
+                }
+            }
         }
-        println!("{:?}", new_node);
-        results.push(Some(new_node));
-        list1_head = list1_head.unwrap().next;
-        list2_head = list2_head.unwrap().next;
-      }
-      results.iter().fold(results.first().unwrap(), |acc, value| {
-        acc.unwrap().next = *value;
-        acc
-      })
+        while list2 != None {
+            result.push(list2.clone());
+            list2 = match list2 {
+                Some(head) => head.next,
+                None => None,
+            };
+        }
+        for index in (1..result.len()).rev() {
+            result[index - 1].as_mut().unwrap().next = result[index].clone();
+        }
+        match result.first() {
+            Some(node) => node.clone(),
+            None => None,
+        }
     }
 }
 // @lc code=end

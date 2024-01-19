@@ -8,6 +8,10 @@ pub mod problem_14;
 pub mod problem_20;
 #[path = "easy/21.merge-two-sorted-lists.rs"]
 pub mod problem_21;
+#[path = "easy/26.remove-duplicates-from-sorted-array.rs"]
+pub mod problem_26;
+#[path = "easy/27.remove-element.rs"]
+pub mod problem_27;
 #[path = "easy/9.palindrome-number.rs"]
 pub mod problem_9;
 
