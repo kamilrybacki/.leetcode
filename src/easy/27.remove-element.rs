@@ -10,8 +10,6 @@ impl Solution {
         nums.clone().iter().enumerate().fold(nums.len() as i32, |mut acc, (index, number)| {
             if *number == val {
                 acc -= 1;
-                nums.push(*number);
-                nums.remove(index);
             }
             acc
         })
