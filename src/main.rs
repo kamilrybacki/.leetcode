@@ -14,6 +14,8 @@ pub mod problem_26;
 pub mod problem_27;
 #[path = "easy/9.palindrome-number.rs"]
 pub mod problem_9;
+#[path = "easy/35.search-insert-position.rs"]
+pub mod problem_35;
 
 fn main() {
     println!("Hello, world!");

@@ -17,5 +17,7 @@ All problems are solved in VS Code using the [LeetCode extension].
 |20|[Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)|[Rust](./src/easy/20.valid-parentheses.rs)|Easy| 50.15 % | 19.94 % |
 |21|[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)|[Rust](./src/easy/21.merge-two-sorted-lists.rs)|Easy| 6.97% | 35.95% |
 |26|[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)|[Rust](./src/easy/26.remove-duplicates-from-sorted-array.rs)|Easy| 100 % | 78.6 % |
+|27|[Remove Element](https://leetcode.com/problems/remove-element/)|[Rust](./src/easy/27.remove-element.rs)|Easy| 79.48 % | 46.72 % |
+|35|[Search Insert Position](https://leetcode.com/problems/search-insert-position/)|[Rust](./src/easy/35.search-insert-position.rs)|Easy| 78.53 % | 66.75 % |
 
 [LeetCode extension]: https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode
