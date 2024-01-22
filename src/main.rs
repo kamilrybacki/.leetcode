@@ -12,10 +12,12 @@ pub mod problem_21;
 pub mod problem_26;
 #[path = "easy/27.remove-element.rs"]
 pub mod problem_27;
-#[path = "easy/9.palindrome-number.rs"]
-pub mod problem_9;
 #[path = "easy/35.search-insert-position.rs"]
 pub mod problem_35;
+#[path = "easy/58.length-of-last-word.rs"]
+pub mod problem_58;
+#[path = "easy/9.palindrome-number.rs"]
+pub mod problem_9;
 
 fn main() {
     println!("Hello, world!");
