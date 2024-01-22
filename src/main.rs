@@ -18,6 +18,8 @@ pub mod problem_35;
 pub mod problem_58;
 #[path = "easy/9.palindrome-number.rs"]
 pub mod problem_9;
+#[path = "easy/66.plus-one.rs"]
+pub mod problem_66;
 
 fn main() {
     println!("Hello, world!");

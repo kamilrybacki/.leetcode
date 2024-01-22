@@ -20,5 +20,6 @@ All problems are solved in VS Code using the [LeetCode extension].
 |27|[Remove Element](https://leetcode.com/problems/remove-element/)|[Rust](./src/easy/27.remove-element.rs)|Easy| 79.48 % | 46.72 % |
 |35|[Search Insert Position](https://leetcode.com/problems/search-insert-position/)|[Rust](./src/easy/35.search-insert-position.rs)|Easy| 78.53 % | 66.75 % |
 |58|[Length of Last Word](https://leetcode.com/problems/length-of-last-word/)|[Rust](./src/easy/58.length-of-last-word.rs)|Easy| 100 % | 40.44 % |
+|66|[Plus One](https://leetcode.com/problems/plus-one/)|[Rust](./src/easy/66.plus-one.rs)|Easy| 79.3 % | 73.02 % |
 
 [LeetCode extension]: https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode
