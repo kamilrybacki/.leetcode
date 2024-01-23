@@ -24,6 +24,8 @@ pub mod problem_67;
 pub mod problem_69;
 #[path = "easy/9.palindrome-number.rs"]
 pub mod problem_9;
+#[path = "easy/70.climbing-stairs.rs"]
+pub mod problem_70;
 
 fn main() {
     println!("Hello, world!");
