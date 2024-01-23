@@ -48,7 +48,7 @@ impl Solution {
                         "0"
                     }
                     _ => {
-                      panic!("Unsupported option!")
+                        panic!("Unsupported option!")
                     }
                 },
             );

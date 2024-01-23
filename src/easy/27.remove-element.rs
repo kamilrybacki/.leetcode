@@ -7,7 +7,6 @@
 // @lc code=start
 impl Solution {
     pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
-        use std::mem::swap;
         match nums.len() {
             0 => 0,
             1 => (nums[0] != val) as i32,
