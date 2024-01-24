@@ -26,6 +26,8 @@ pub mod problem_69;
 pub mod problem_9;
 #[path = "easy/70.climbing-stairs.rs"]
 pub mod problem_70;
+#[path = "easy/83.remove-duplicates-from-sorted-list.rs"]
+pub mod problem_83;
 
 fn main() {
     println!("Hello, world!");
