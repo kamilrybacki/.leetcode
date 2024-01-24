@@ -1,3 +1,4 @@
+<!-- Don't fill out comments column! -->
 # LeetCode problems in Rust
 
 This repository contains my solutions to LeetCode problems in Rust.
@@ -24,5 +25,6 @@ All problems are solved in VS Code using the [LeetCode extension].
 |67|[Add Binary](https://leetcode.com/problems/add-binary/)|[Rust](./src/easy/67.add-binary.rs)|Easy| 26.51 % | 26.05 % | Similar to the 66 |
 |69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[Rust](./src/easy/69.sqrtx.rs)|Easy| 100 % | 74.03 % | Newton's method for calculating square root |
 |70|[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)|[Rust](./src/easy/70.climbing-stairs.rs)|Easy| 100 % | 37.6 % | Recurrence @ $n-1$ and $n-2$ for $n>1$ (for $n\in\lbrace1,2\rbrace$ return $n$) + memo with HashMap |
+|83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|[Rust](./src/easy/83.remove-duplicates-from-sorted-list.rs)|Easy| | | |
 
 [LeetCode extension]: https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode
