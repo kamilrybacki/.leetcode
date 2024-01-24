@@ -23,6 +23,6 @@ All problems are solved in VS Code using the [LeetCode extension].
 |66|[Plus One](https://leetcode.com/problems/plus-one/)|[Rust](./src/easy/66.plus-one.rs)|Easy| 79.3 % | 73.02 % | Split number into digits and do carry overs for digits preceeding urrent index |
 |67|[Add Binary](https://leetcode.com/problems/add-binary/)|[Rust](./src/easy/67.add-binary.rs)|Easy| 26.51 % | 26.05 % | Similar to the 66 |
 |69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[Rust](./src/easy/69.sqrtx.rs)|Easy| 100 % | 74.03 % | Newton's method for calculating square root |
-|70|[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)|[Rust](./src/easy/70.climbing-stairs.rs)|Easy| 100 % | 37.6 % | Recurrence for $n-1$ and $n-2$ for $n>1$ (for $n\in\lbrace1,2\rbrace$ return $n$) + memo with HashMap |
+|70|[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)|[Rust](./src/easy/70.climbing-stairs.rs)|Easy| 100 % | 37.6 % | Recurrence @ $n-1$ and $n-2$ for $n>1$ (for $n\in\lbrace1,2\rbrace$ return $n$) + memo with HashMap |
 
 [LeetCode extension]: https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode
