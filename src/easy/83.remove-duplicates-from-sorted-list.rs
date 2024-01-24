@@ -12,6 +12,8 @@
 //   pub next: Option<Box<ListNode>>
 // }
 
+use std::ops::Deref;
+
 // impl ListNode {
 //   #[inline]
 //   fn new(val: i32) -> Self {
@@ -23,25 +25,30 @@
 // }
 impl Solution {
     pub fn delete_duplicates(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        fn delete_duplicate(mut current_head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-          match current_head {
-            Some(ref mut node) => {
-              let mut next_node = node.next.clone();
-              while next_node != None {
-                println!("{:?} | {:?}", node, next_node);
-                if next_node.clone().unwrap().val == node.clone().val {
-                  node.as_mut().next = next_node.clone();
+        fn delete_duplicate(current_node: &mut Box<ListNode>) -> () {
+            println!("{:?}", current_node);
+            match current_node.next.clone() {
+                Some(ref mut child_node) => {
+                    while child_node.val == current_node.val {
+                      *child_node = child_node.next.as_ref().unwrap().clone();
+                    }
+                    current_node.next = Some(child_node.clone());
+                    if current_node.next != None {
+                        delete_duplicate(current_node.next.as_mut().unwrap());
+                    }
                 }
-                *node = node.next.clone().unwrap();
-                next_node = next_node.clone().unwrap().next;
-              }
-            },
-            None => {}
-          };
-          current_head
+                None => {
+                    println!("Child node is None!");
+                }
+            };
         }
-        delete_duplicate(head.clone())
+        match head {
+            None => None,
+            _ => {
+                delete_duplicate(&mut head.as_mut().unwrap());
+                head
+            }
+        }
     }
 }
 // @lc code=end
-

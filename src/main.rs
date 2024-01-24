@@ -22,12 +22,12 @@ pub mod problem_66;
 pub mod problem_67;
 #[path = "easy/69.sqrt-x.rs"]
 pub mod problem_69;
-#[path = "easy/9.palindrome-number.rs"]
-pub mod problem_9;
 #[path = "easy/70.climbing-stairs.rs"]
 pub mod problem_70;
 #[path = "easy/83.remove-duplicates-from-sorted-list.rs"]
 pub mod problem_83;
+#[path = "easy/9.palindrome-number.rs"]
+pub mod problem_9;
 
 fn main() {
     println!("Hello, world!");
