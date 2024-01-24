@@ -25,30 +25,24 @@ use std::ops::Deref;
 // }
 impl Solution {
     pub fn delete_duplicates(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        fn delete_duplicate(current_node: &mut Box<ListNode>) -> () {
-            println!("{:?}", current_node);
-            match current_node.next.clone() {
-                Some(ref mut child_node) => {
-                    while child_node.val == current_node.val {
-                      *child_node = child_node.next.as_ref().unwrap().clone();
-                    }
-                    current_node.next = Some(child_node.clone());
-                    if current_node.next != None {
-                        delete_duplicate(current_node.next.as_mut().unwrap());
-                    }
-                }
-                None => {
-                    println!("Child node is None!");
-                }
-            };
-        }
-        match head {
-            None => None,
-            _ => {
-                delete_duplicate(&mut head.as_mut().unwrap());
-                head
+        let mut uniques: Vec<i32> = Vec::new();
+        while head != None {
+            if !uniques.contains(&head.as_ref().unwrap().val) {
+                uniques.push(head.as_ref().unwrap().val);
             }
+            head = head.unwrap().next;
         }
+        head = None;
+        for value in uniques.iter().rev() {
+          let mut new_node = Box::new(
+            ListNode::new(
+              *value
+            )
+          );
+          new_node.next = head.clone();
+          head = Some(new_node)
+        }
+        head
     }
 }
 // @lc code=end
