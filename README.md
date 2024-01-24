@@ -26,5 +26,6 @@ All problems are solved in VS Code using the [LeetCode extension].
 |69|[Sqrt(x)](https://leetcode.com/problems/sqrtx/)|[Rust](./src/easy/69.sqrtx.rs)|Easy| 100 % | 74.03 % | Newton's method for calculating square root |
 |70|[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)|[Rust](./src/easy/70.climbing-stairs.rs)|Easy| 100 % | 37.6 % | Recurrence @ $n-1$ and $n-2$ for $n>1$ (for $n\in\lbrace1,2\rbrace$ return $n$) + memo with HashMap |
 |83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|[Rust](./src/easy/83.remove-duplicates-from-sorted-list.rs)|Easy| 9.48 % | 88.79 % | List with unique entries and then wrap the values from end |
+|88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[Rust](./src/easy/88.merge-sorted-array.rs)|Easy| 100 % | 100 % |  |
 
 [LeetCode extension]: https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode

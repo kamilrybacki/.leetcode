@@ -28,6 +28,8 @@ pub mod problem_70;
 pub mod problem_83;
 #[path = "easy/9.palindrome-number.rs"]
 pub mod problem_9;
+#[path = "easy/88.merge-sorted-array.rs"]
+pub mod problem_88;
 
 fn main() {
     println!("Hello, world!");
