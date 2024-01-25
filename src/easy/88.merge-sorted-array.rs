@@ -19,21 +19,21 @@ impl Solution {
         let mut right_side_pointer = n + m - 1;
         while right_side_pointer >= 0 {
           println!("{} | {} | {} ", first_number_index, right_side_pointer, second_number_index);
-          if first_number_index < 0 {
-            first_number_index = 0;
-          }
-          if second_number_index < 0 {
-            second_number_index = 0;
-          }
-          match nums1[first_number_index as usize].cmp(
-            &nums2[second_number_index as usize]
-          ) {
+          let first_number = match first_number_index < 0 {
+            true => i32::MIN,
+            false => nums1[first_number_index as usize].clone()
+          };
+          let second_number = match second_number_index < 0 {
+            true => i32::MIN,
+            false => nums2[second_number_index as usize].clone()
+          };
+          match first_number.cmp(&second_number) {
             Ordering::Equal | Ordering::Greater => {
-              nums1[right_side_pointer as usize] = nums1[first_number_index as usize].clone();
+              nums1[right_side_pointer as usize] = first_number;
               first_number_index -= 1;
             },
             Ordering::Less => {
-              nums1[right_side_pointer as usize] = nums2[second_number_index as usize].clone();
+              nums1[right_side_pointer as usize] = second_number;
               second_number_index -= 1;
             }
           }
