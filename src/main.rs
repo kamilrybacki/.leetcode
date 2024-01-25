@@ -30,6 +30,8 @@ pub mod problem_83;
 pub mod problem_9;
 #[path = "easy/88.merge-sorted-array.rs"]
 pub mod problem_88;
+#[path = "easy/94.binary-tree-inorder-traversal.rs"]
+pub mod problem_94;
 
 fn main() {
     println!("Hello, world!");
