@@ -32,6 +32,8 @@ pub mod problem_9;
 pub mod problem_88;
 #[path = "easy/94.binary-tree-inorder-traversal.rs"]
 pub mod problem_94;
+#[path = "easy/100.same-tree.rs"]
+pub mod problem_100;
 
 fn main() {
     println!("Hello, world!");
