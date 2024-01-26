@@ -34,13 +34,9 @@ impl Solution {
         }
         head = None;
         for value in uniques.iter().rev() {
-          let mut new_node = Box::new(
-            ListNode::new(
-              *value
-            )
-          );
-          new_node.next = head.clone();
-          head = Some(new_node)
+            let mut new_node = Box::new(ListNode::new(*value));
+            new_node.next = head.clone();
+            head = Some(new_node)
         }
         head
     }
