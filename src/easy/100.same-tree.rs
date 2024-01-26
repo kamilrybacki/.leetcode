@@ -33,8 +33,21 @@ impl Solution {
         fn compare_nodes(
             node_1: Option<Rc<RefCell<TreeNode>>>,
             node_2: Option<Rc<RefCell<TreeNode>>>,
-        ) {
+        ) -> bool {
+            match (node_1, node_2) {
+                (None, None) => true,
+                (Some(_), None) | (None, Some(_)) => false,
+                (Some(first), Some(second)) => {
+                    return first.borrow().val == second.val
+                        && compare_nodes(first.borrow().left.clone(), second.borrow().left.clone())
+                        && compare_nodes(
+                            first.borrow().right.clone(),
+                            second.borrow().right.clone(),
+                        )
+                }
+            }
         }
+        compare_nodes(p, q)
     }
 }
 // @lc code=end

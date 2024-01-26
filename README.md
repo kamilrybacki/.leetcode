@@ -28,6 +28,6 @@ All problems are solved in VS Code using the [LeetCode extension].
 |83|[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)|[Rust](./src/easy/83.remove-duplicates-from-sorted-list.rs)|Easy| 9.48 % | 88.79 % | List with unique entries and then wrap the values from end |
 |88|[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)|[Rust](./src/easy/88.merge-sorted-array.rs)|Easy| 83.65 % | 47.4 % | Three pointers (for $n$, $m$ and $n+m$) |
 |94|[Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)|[Rust](./src/easy/94.binary-tree-inorder-traversal.rs)|Easy| 100 % | 38.52 % | Recursion while enforcing the left-root-right order + clone the nodes accessed as refs and borrowed from RefCells |
-|100|[Same Tree](https://leetcode.com/problems/same-tree/)|[Rust](./src/easy/100.same-tree.rs)|Easy| % | % | |
+|100|[Same Tree](https://leetcode.com/problems/same-tree/)|[Rust](./src/easy/100.same-tree.rs)|Easy| 100 % | 91.67 % | Recursion with match that covers cases for `node_1` and `node_2` (etc. `(None,None)` ) that does triple boolean expression comaring lefts, roots and rights |
 
 [LeetCode extension]: https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode
