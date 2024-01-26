@@ -13,6 +13,8 @@
 //   pub right: Option<Rc<RefCell<TreeNode>>>,
 // }
 
+use std::borrow::BorrowMut;
+use std::ops::Deref;
 // impl TreeNode {
 //   #[inline]
 //   pub fn new(val: i32) -> Self {
@@ -26,29 +28,28 @@
 use std::rc::Rc;
 use std::cell::RefCell;
 impl Solution {
-    pub fn inorder_traversal(mut root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
-      fn traverse(mut node: Option<Rc<RefCell<TreeNode>>>, mut last_seen: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+    pub fn inorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
+      fn traverse(node: Option<Rc<RefCell<TreeNode>>>, last_parent: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
         let mut values: Vec<i32> = Vec::new();
-        println!("Current: {:?}", node);
-        if node.is_some() {
-            match node.clone().unwrap().borrow().left.clone() {
-              Some(left_node) => {
-                values.append(&mut traverse(Some(left_node), node));
-              },
-              None => match node.clone().unwrap().borrow().right.clone() {
-                Some(right_node) => {
-                  values.append(&mut traverse(Some(right_node), node));
-                },
-                None => {
-                  values.push(node.clone().unwrap().borrow().val.clone());
-                  values.append(&mut traverse(last_seen, None));
-                }
-              }
-            }
-        };
+        if node.is_none() {
+          return vec![]
+        }
+        values.append(
+          &mut traverse(
+            node.as_ref().unwrap().borrow().left.clone(),
+            node.clone()
+          )
+        );
+        values.push(node.as_ref().unwrap().borrow().val);
+        values.append(
+          &mut traverse(
+            node.as_ref().unwrap().borrow().right.clone(),
+            node.clone()
+          )
+        );
         values
       }
-      traverse(root.clone(), root.clone())
+      traverse(root, None)
     }
 }
 // @lc code=end
