@@ -30,5 +30,6 @@ All problems are solved in VS Code using the [LeetCode extension].
 |94|[Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)|[Rust](./src/easy/94.binary-tree-inorder-traversal.rs)|Easy| 100 % | 38.52 % | Recursion while enforcing the left-root-right order + clone the nodes accessed as refs and borrowed from RefCells |
 |100|[Same Tree](https://leetcode.com/problems/same-tree/)|[Rust](./src/easy/100.same-tree.rs)|Easy| 100 % | 91.67 % | Recursion with match that covers cases for `node_1` and `node_2` (etc. `(None,None)` ) that does triple boolean expression comaring lefts, roots and rights |
 |101|[Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)|[Rust](./src/easy/101.symmetric-tree.rs)|Easy| 100 % | 29.84 % | Check if (L,R) is `(None,None)` or `(Some,Some)` with equal L and R's ($L.R=R.L \land L.L=R.R$) |
+|104|[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|[Rust](./src/easy/104.maximum-depth-of-binary-tree.rs)|Easy| | | |
 
 [LeetCode extension]: https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode
