@@ -6,6 +6,8 @@ pub mod problem_100;
 pub mod problem_101;
 #[path = "easy/104.maximum-depth-of-binary-tree.rs"]
 pub mod problem_104;
+#[path = "easy/108.convert-sorted-array-to-binary-search-tree.rs"]
+pub mod problem_108;
 #[path = "easy/13.roman-to-integer.rs"]
 pub mod problem_13;
 #[path = "easy/14.longest-common-prefix.rs"]
