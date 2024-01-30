@@ -31,6 +31,6 @@ All problems are solved in VS Code using the [LeetCode extension].
 |100|[Same Tree](https://leetcode.com/problems/same-tree/)|[Rust](./src/easy/100.same-tree.rs)|Easy| 100 % | 91.67 % | Recursion with match that covers cases for `node_1` and `node_2` (etc. `(None,None)` ) that does triple boolean expression comaring lefts, roots and rights |
 |101|[Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)|[Rust](./src/easy/101.symmetric-tree.rs)|Easy| 100 % | 29.84 % | Check if (L,R) is `(None,None)` or `(Some,Some)` with equal L and R's ($L.R=R.L \land L.L=R.R$) |
 |104|[Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)|[Rust](./src/easy/104.maximum-depth-of-binary-tree.rs)|Easy| 100 % | 13.27 % | Create vector of ints with depths for each branches and stop at `None` with pushing the current_depth |
-
+|108|[Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)|[Rust](./src/easy/108.convert-sorted-array-to-binary-search-tree.rs)|Easy| 100 % | 100 % | |
 
 [LeetCode extension]: https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode
