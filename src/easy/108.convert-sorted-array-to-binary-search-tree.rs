@@ -4,6 +4,8 @@
  * [108] Convert Sorted Array to Binary Search Tree
  */
 
+use core::num;
+use std::borrow::BorrowMut;
 // @lc code=start
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -27,61 +29,43 @@ use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
     pub fn sorted_array_to_bst(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
-      use std::cmp::Ordering;
         fn make_branch(
             parent_node: &mut Option<Rc<RefCell<TreeNode>>>,
-            branch_vals: &mut Vec<i32>,
+            vals: &mut Vec<i32>,
         ) -> () {
+            println!("{:?} | {:?}", parent_node, vals);
             if parent_node.is_some() {
-                match branch_vals.len() {
-                    0 => (),
-                    1 => {
-                        parent_node.as_mut().unwrap().borrow_mut().right =
-                            Some(Rc::new(RefCell::new(TreeNode::new(branch_vals[0]))));
-                    }
-                    _ => {
-                        let middle_point = branch_vals.len() / 2;
-                        let children_values = match branch_vals[middle_point - 1].cmp(&branch_vals[middle_point+1]) {
-                          Ordering::Less => (
-                            branch_vals[middle_point-1],
-                            branch_vals[middle_point+1]
-                          ),
-                          Ordering::Greater => (
-                            branch_vals[middle_point+1],
-                            branch_vals[middle_point-1]
-                          ),
-                          Ordering::Equal => (
-                            branch_vals[middle_point+1],
-                            branch_vals[middle_point+1],
-                          )
-                        };
-                        parent_node.unwrap().as_mut().left = Some(
-                          Rc::new(
-                            RefCell::new(
-                              TreeNode::new(
-                                children_values.0
-                              )
-                            )
-                          )
-                        );
-                        make_branch(
-                            &mut parent_node.unwrap().as_mut().left,
-                            &mut Vec::from(branch_vals[0..middle_point].to_owned()),
-                        );
-                        make_branch(
-                            &mut parent_node.unwrap().as_mut().right,
-                            &mut Vec::from(branch_vals[middle_point + 1..].to_owned()),
-                        );
-                    }
+
+                let middle_point = vals.len() / 2;
+                parent_node.clone().unwrap().clone().borrow_mut().left = match middle_point - 1 >= 0 {
+                  true => Some(Rc::new(
+                    RefCell::new(TreeNode::new(vals[middle_point - 1])),
+                  )),
+                  false => None
                 };
+                parent_node.clone().unwrap().clone().borrow_mut().right = match middle_point + 1 < vals.len() {
+                  true => Some(Rc::new(
+                    RefCell::new(TreeNode::new(vals[middle_point + 1])),
+                  )),
+                  false => None
+                };
+                vals.drain(middle_point - 1..middle_point + 2);
+                make_branch(
+                    &mut parent_node.clone().unwrap().clone().borrow_mut().left,
+                    &mut vals,
+                );
+                make_branch(
+                    &mut parent_node.clone().unwrap().clone().borrow_mut().right,
+                    &mut vals,
+                );
             }
         }
         match nums.len() {
             0 => None,
             _ => {
-                let root = TreeNode::new();
+                let root = TreeNode::new(nums[nums.len() / 2]);
                 let mut root_node = Some(Rc::new(RefCell::new(root)));
-                make_branch(&mut root_node, &mut Vec::from(nums));
+                make_branch(&mut root_node, &mut nums);
                 root_node
             }
         }
