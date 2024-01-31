@@ -40,6 +40,8 @@ pub mod problem_88;
 pub mod problem_9;
 #[path = "easy/94.binary-tree-inorder-traversal.rs"]
 pub mod problem_94;
+#[path = "easy/110.balanced-binary-tree.rs"]
+pub mod problem_110;
 
 fn main() {
     println!("Hello, world!");
