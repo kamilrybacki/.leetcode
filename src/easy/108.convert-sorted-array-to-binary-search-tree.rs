@@ -27,11 +27,17 @@ use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
     pub fn sorted_array_to_bst(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
-        fn branch_out(vals: &Vec<i32>) -> () {
-            println!("{:?}", vals);
-            let middle_index = vals.len() / 2;
-            let root = TreeNode::new(vals[middle_index]);
-            root.left
+        fn branch_out(vals: &Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+            if vals.len() == 0 {
+                return None;
+            };
+            let middle_index = match vals.len() % 2 {
+                0 => vals.len() / 2 - 1,
+                _ => vals.len() / 2,
+            };
+            let mut root = TreeNode::new(vals[middle_index]);
+            root.left = branch_out(&vals[0..middle_index].to_owned());
+            root.right = branch_out(&vals[middle_index + 1..].to_owned());
             Some(Rc::new(RefCell::new(root)))
         }
         match nums.len() {
