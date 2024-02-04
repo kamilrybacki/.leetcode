@@ -4,6 +4,7 @@
  * [111] Minimum Depth of Binary Tree
  */
 
+use std::borrow::Borrow;
 // @lc code=start
 // Definition for a binary tree node.
 // #[derive(Debug, PartialEq, Eq)]
@@ -23,9 +24,31 @@
 //     }
 //   }
 // }
-use std::cell::RefCell;
+use std::cell::{Ref, RefCell};
 use std::rc::Rc;
 impl Solution {
-    pub fn min_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {}
+    pub fn min_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        fn measure_branch(node: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+            match node {
+                None => 0,
+                Some(existing_node) => {
+                    1 + measure_branch(existing_node.borrow().left.clone())
+                        .max(measure_branch(existing_node.borrow().right.clone()))
+                }
+            }
+        }
+        match root {
+            None => 0,
+            Some(valid_root) => {
+                1 + match (
+                    measure_branch(valid_root.borrow().left.clone()),
+                    measure_branch(valid_root.borrow().right.clone()),
+                ) {
+                    (0, h) | (h, 0) => h,
+                    (h_left, h_right) => h_left.min(h_right),
+                }
+            }
+        }
+    }
 }
 // @lc code=end
