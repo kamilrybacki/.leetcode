@@ -10,6 +10,8 @@ pub mod problem_104;
 pub mod problem_108;
 #[path = "easy/110.balanced-binary-tree.rs"]
 pub mod problem_110;
+#[path = "easy/111.minimum-depth-of-binary-tree.rs"]
+pub mod problem_111;
 #[path = "easy/13.roman-to-integer.rs"]
 pub mod problem_13;
 #[path = "easy/14.longest-common-prefix.rs"]
