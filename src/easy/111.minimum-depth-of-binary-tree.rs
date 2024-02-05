@@ -30,33 +30,27 @@ use std::rc::Rc;
 impl Solution {
     pub fn min_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         fn branch_min_depth(branch: Option<Rc<RefCell<TreeNode>>>, shift: i32) -> i32 {
-            println!("{:?}: {}", branch, shift);
-            let mut minimal_depth = shift.clone();
             match branch {
-                None => minimal_depth - 1,
-                Some(node) => {
-                    let left_depth = branch_min_depth(node.borrow().left.clone(), shift + 1);
-                    let right_depth = branch_min_depth(node.borrow().right.clone(), shift + 1);
-                    left_depth.min(right_depth)
+                None => shift - 1,
+                Some(valid_root) => {
+                    let minimum_depth = match (
+                        valid_root.borrow().left.clone(),
+                        valid_root.borrow().right.clone(),
+                    ) {
+                        (None, None) => shift,
+                        (Some(left), Some(right)) => {
+                            branch_min_depth(Some(left.clone()), shift + 1)
+                                .min(branch_min_depth(Some(right.clone()), shift + 1))
+                        }
+                        (Some(single_branch), None) | (None, Some(single_branch)) => {
+                            branch_min_depth(Some(single_branch.clone()), shift + 1)
+                        }
+                    };
+                    minimum_depth
                 }
             }
         }
-        match root {
-            None => 0,
-            Some(valid_root) => {
-                let minimum_depth = match (
-                    valid_root.borrow().left.clone(),
-                    valid_root.borrow().right.clone(),
-                ) {
-                    (Some(_), Some(_)) => branch_min_depth(Some(valid_root.clone()), 1),
-                    (None, None) => 1,
-                    (Some(single_branch), None) | (None, Some(single_branch)) => {
-                        branch_min_depth(Some(single_branch.clone()), 1)
-                    }
-                };
-                minimum_depth
-            }
-        }
+        branch_min_depth(root, 1)
     }
 }
 // @lc code=end
