@@ -18,6 +18,8 @@ pub mod problem_112;
 pub mod problem_118;
 #[path = "easy/119.pascals-triangle-ii.rs"]
 pub mod problem_119;
+#[path = "easy/121.best-time-to-buy-and-sell-stock.rs"]
+pub mod problem_121;
 #[path = "easy/13.roman-to-integer.rs"]
 pub mod problem_13;
 #[path = "easy/14.longest-common-prefix.rs"]
