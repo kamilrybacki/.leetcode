@@ -16,6 +16,8 @@ pub mod problem_111;
 pub mod problem_112;
 #[path = "easy/118.pascals-triangle.rs"]
 pub mod problem_118;
+#[path = "easy/119.pascals-triangle-ii.rs"]
+pub mod problem_119;
 #[path = "easy/13.roman-to-integer.rs"]
 pub mod problem_13;
 #[path = "easy/14.longest-common-prefix.rs"]
