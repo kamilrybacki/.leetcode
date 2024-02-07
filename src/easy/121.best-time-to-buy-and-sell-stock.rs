@@ -7,38 +7,31 @@
 // @lc code=start
 impl Solution {
     pub fn max_profit(prices: Vec<i32>) -> i32 {
-        use std::collections::HashSet;
-        fn search_for_max_profit(slice: Vec<i32>) -> i32 {
-            let mut indices: HashSet<(usize, usize)> = HashSet::new();
-            let mut max_profit = 0;
-            for current_day in 0..(slice.len() - 1) {
-                let mut forward_pointer = current_day + 1;
-                let mut backwards_pointer = slice.len() - 1;
-                while forward_pointer <= backwards_pointer {
-                    if !indices.contains(&(current_day, forward_pointer)) {
-                        max_profit = max_profit.max(slice[forward_pointer] - slice[current_day]);
-                        indices.insert((current_day, forward_pointer));
-                    }
-                    if !indices.contains(&(current_day, backwards_pointer)) {
-                        max_profit = max_profit.max(slice[backwards_pointer] - slice[current_day]);
-                        indices.insert((current_day, backwards_pointer));
-                    }
-                    if !indices.contains(&(forward_pointer, backwards_pointer)) {
-                        max_profit =
-                            max_profit.max(slice[backwards_pointer] - slice[forward_pointer]);
-                        indices.insert((forward_pointer, backwards_pointer));
-                    }
-                    forward_pointer += 1;
-                    backwards_pointer -= 1;
-                }
+        let mut current_maximum = 0;
+        fn calculate_differences(prices: Vec<i32>, mut cache: &i32) {
+            if prices.len() <= 1 {
+                return;
             }
-            max_profit
+            if prices.len() == 2 {
+                let difference = prices[1] - prices[0];
+                cache = cache.max(&difference.clone());
+                return;
+            }
+            let mut second_forward_index = 0;
+            let mut second_backward_index = prices.len();
+            while second_forward_index <= second_backward_index {
+                second_backward_index -= 1;
+                let bigger_value = prices[second_backward_index].max(prices[second_forward_index]);
+                let difference = bigger_value - prices[0];
+                cache = cache.max(&difference.clone());
+                println!("({}) {} - {}", bigger_value, prices[0], cache);
+                second_forward_index += 1;
+                calculate_differences(prices[second_forward_index..].to_vec(), cache);
+                calculate_differences(prices[second_backward_index..].to_vec(), cache);
+            }
         }
-        match prices.len() {
-            1 => 0,
-            2 => 0.max(prices[1] - prices[0]),
-            _ => search_for_max_profit(prices),
-        }
+        calculate_differences(prices, &current_maximum);
+        current_maximum
     }
 }
 // @lc code=end
