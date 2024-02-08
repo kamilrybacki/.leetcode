@@ -9,6 +9,7 @@ impl Solution {
     pub fn convert_to_title(column_number: i32) -> String {
         use std::collections::HashMap;
         let quick_lookup_map: HashMap<i32, char> = HashMap::from([
+            (0, 'Z'),
             (1, 'A'),
             (2, 'B'),
             (3, 'C'),
@@ -37,6 +38,19 @@ impl Solution {
             (26, 'Z'),
         ]);
         let mut result = String::new();
+        if column_number != 0 {
+          result.push(
+            *quick_lookup_map.get(&(column_number % 26)).unwrap()
+          );
+          let remaining_counter = column_number - (column_number % 26);
+          if remaining_counter > 0 {
+            result.insert_str(
+              0,
+              &Self::convert_to_title(remaining_counter / 26)
+            );
+          }
+        }
+        println!("{}: {:?}", column_number, result);
         result
     }
 }
