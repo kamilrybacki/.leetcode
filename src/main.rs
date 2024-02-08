@@ -24,6 +24,8 @@ pub mod problem_121;
 pub mod problem_125;
 #[path = "easy/13.roman-to-integer.rs"]
 pub mod problem_13;
+#[path = "easy/136.single-number.rs"]
+pub mod problem_136;
 #[path = "easy/14.longest-common-prefix.rs"]
 pub mod problem_14;
 #[path = "easy/20.valid-parentheses.rs"]
