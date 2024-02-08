@@ -40,6 +40,7 @@ All problems are solved in VS Code using the [LeetCode extension].
 |121|[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)|[Rust](./src/easy/121.best-time-to-buy-and-sell-stock.rs)|Easy| 89.95 % | 68.92 % | Keep track of minimum price and maximum profit ([greedy algorithm]) |
 |125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[Rust](./src/easy/125.valid-palindrome.rs)|Easy| 100 % | 34.21 % | Iterate over characters forwards and backwards, while skipping non-alphanumeric characters (while also advancing index), and compare their lowercase ASCII representations|
 |136|[Single Number](https://leetcode.com/problems/single-number/)|[Rust](./src/easy/136.single-number.rs)|Easy| 81.45 % | 62.16 % | Iterate and keep track on seen numbers, if a number is seen twice - remove it from cache - the result is the remaining entry (there is also a [trick with XOR operator]): `result ^= number` |
+|141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|NaN|Easy| NaN | NaN | **NOT AVAILABLE IN RUST** |
 
 [LeetCode extension]: https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode
 [greedy algorithm]: https://www.youtube.com/watch?v=HzeK7g8cD0Y
