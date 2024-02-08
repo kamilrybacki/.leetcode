@@ -30,6 +30,8 @@ pub mod problem_136;
 pub mod problem_14;
 #[path = "easy/144.binary-tree-preorder-traversal.rs"]
 pub mod problem_144;
+#[path = "easy/145.binary-tree-postorder-traversal.rs"]
+pub mod problem_145;
 #[path = "easy/20.valid-parentheses.rs"]
 pub mod problem_20;
 #[path = "easy/21.merge-two-sorted-lists.rs"]

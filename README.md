@@ -42,6 +42,7 @@ All problems are solved in VS Code using the [LeetCode extension].
 |136|[Single Number](https://leetcode.com/problems/single-number/)|[Rust](./src/easy/136.single-number.rs)|Easy| 81.45 % | 62.16 % | Iterate and keep track on seen numbers, if a number is seen twice - remove it from cache - the result is the remaining entry (there is also a [trick with XOR operator]): `result ^= number` |
 |141|[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)|NaN|Easy| NaN | NaN | **NOT AVAILABLE IN RUST** (due to difficulties with multi-pointers in Rust i.e. borrowing rules) |
 |144|[Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)|[Rust](./src/easy/144.binary-tree-preorder-traversal.rs)|Easy| 100 % | 53.97 % | Recursion with `root` -> `left` -> `right` order (the usual `None/Some` letf-right schtick) |
+|145|[Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)|[Rust](./src/easy/145.binary-tree-postorder-traversal.rs)|Easy| 100 % | 45.28 % | Recursion with `left` -> `right` -> `root` order (just change the order in the previous problem of appending values 🤷)|
 
 [LeetCode extension]: https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode
 [greedy algorithm]: https://www.youtube.com/watch?v=HzeK7g8cD0Y
