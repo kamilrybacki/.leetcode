@@ -38,6 +38,7 @@ All problems are solved in VS Code using the [LeetCode extension].
 |118|[Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)|[Rust](./src/easy/118.pascals-triangle.rs)|Easy| 84.02 % | 58.9 % | Use previous row entries from `0` to `len - 1` to calculate inner numbers of next row, append `1`s to its start and end. First row is always `[1]`, second one is always `[1,1]`. Use running row counter.|
 |119|[Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/)|[Rust](./src/easy/119.pascals-triangle-ii.rs)|Easy| 100 % | 47.78 % | Same as 118, but only return the last row |
 |121|[Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)|[Rust](./src/easy/121.best-time-to-buy-and-sell-stock.rs)|Easy| 89.95 % | 68.92 % | Keep track of minimum price and maximum profit ([greedy algorithm]) |
+|125|[Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)|[Rust](./src/easy/125.valid-palindrome.rs)|Easy| 100 % | 34.21 % | Iterate over characters forwards and backwards, while skipping non-alphanumeric characters (while also advancing index), and compare their lowercase ASCII representations|
 
 [LeetCode extension]: https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode
 [greedy algorithm]: https://www.youtube.com/watch?v=HzeK7g8cD0Y
