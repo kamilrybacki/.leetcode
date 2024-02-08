@@ -32,6 +32,8 @@ pub mod problem_14;
 pub mod problem_144;
 #[path = "easy/145.binary-tree-postorder-traversal.rs"]
 pub mod problem_145;
+#[path = "easy/168.excel-sheet-column-title.rs"]
+pub mod problem_168;
 #[path = "easy/20.valid-parentheses.rs"]
 pub mod problem_20;
 #[path = "easy/21.merge-two-sorted-lists.rs"]
